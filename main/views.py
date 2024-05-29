@@ -1,11 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from .models import SurveyResult
-from .forms import SurveyForm
+from .models import SurveyResult, VoiceFile
+from .forms import SurveyForm, VoiceFileForm
 from django.utils import timezone
 
 def index(request):
-    return render(request, 'main/index.html')
+    if request.method == 'POST':
+        form = VoiceFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            voice_file = VoiceFile(file=request.FILES['voiceFile'])
+            voice_file.save()
+            return redirect('index')
+    else:
+        form = VoiceFileForm()
+    return render(request, 'main/index.html', {'form': form})
 
 def checklist(request):
     return render(request, 'main/checklist.html')
