@@ -1,0 +1,16 @@
+#finish{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 90%;
+    border: none;
+    border-radius: 30px;
+    background-color: #FFC124;
+    color: white;
+    height: 50px;
+    box-shadow: 0px 1.677px 1.677px 0px rgba(0, 0, 0, 0.25);
+}
+#result p{
+    width: 100%;
+    text-align: center;
+}

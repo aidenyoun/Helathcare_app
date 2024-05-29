@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container_checklist{
+            position: relative;
+            top: 60px;
+        }
+        #record{
+            width: 180px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: #FFC124;
+            color: white;
+        }
+        #history_list{
+            position: relative;
+            top: 5px;
+        }
+        .history{
+            text-align: left;
+            background-color: #F6F6F6;
+            height: 45px;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.05);
+        }
+        .history p{
+            position: relative;
+            top: 15px;
+            left: 30px;
+        }
+        .history img{
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 10px;
+        }
+    </style>
+</head>
+    <div id="container_checklist">
+        <header>
+            <p style="font-size: 20px;">✔️음주 체크리스트</p>
+        </header>
+        <button id="record" >금일 체크리스트 기록하기</button>
+        <div id="history_list">
+            <div class="history">
+                <p>2024.05.21</p>
+                <img id="arrow" src="{% static 'images/arrow.png' %}" alt="<-">
+            </div>
+        </div>
+    </div>
+</html>

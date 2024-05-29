@@ -1,15 +1,26 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>금주,우리가 도와줄게요!</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div id="main">
-        <header>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('nav li div');
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        links.forEach(function(otherLink) {
+          otherLink.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+  });
+  function record(){
+  window.open('templates/main/checklist_main.html');
+}
+  function changeContent(clickedElement) {
+  var content = document.getElementById("main");
+  var newText;
+  switch (clickedElement.innerText) {
+    case "음주 정도 확인":
+     newText = `
+     <header>
             <p id="h1">🍻당신이 얼마나 취했는지 알려줄게요!</p>
             <p id="h2">간단한 정보를 입력하고 음성파일을 업로드해주세요!</p>
         </header>
@@ -47,33 +58,33 @@
         <p>0000000000</p>
     </div>
         </form>
-</div>    
-    <nav class="navi_bar">
-        <div class="navi_bar_details">
-            <ul>
-                <li class="navi_bar_detailsli">
-                    <div href="#" class="active" onclick="changeContent(this);">
-                        <a><img id="voicecheck" src="{% static 'images/voicecheck.png' %}">음주 정도 확인</a>
-                    </div>
-                </li>
-                <li class="navi_bar_detailsli">
-                    <div href="#" onclick="changeContent(this)">
-                        <a><img id="calender" src="{% static 'images/calender.png' %}">음주 캘린더</a>
-                    </div>
-                </li>
-                <li class="navi_bar_detailsli">
-                    <div href="#" onclick="changeContent(this)">
-                        <a><img id="checklist" src="{% static 'images/checklist.png' %}">알코올 중독 자가진단</a>
-                    </div>
-                </li>
-                <li id="more_li">
-                    <div href="#" onclick="changeContent(this)">
-                        <a><img id="mypage" src="{% static 'images/mypage.png' %}">내 정보</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</body>
-<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-</html>
+      `;
+      break;
+    case "음주 캘린더":
+      newText = `
+      `
+      break;
+    case "알코올 중독 자가진단":
+      newText = `
+        <header>
+            <p style="font-size: 20px;">✔️음주 체크리스트</p>
+        </header>
+        <button id="record" onclick='record()'>금일 체크리스트 기록하기</button>
+        <div id="history_list">
+            <div class="history">
+                <p>2024.05.21</p>
+                <img src="static/images/arrow.png"> 
+            </div>
+        </div>`;
+      break;
+    case "내 정보":
+      newText = `
+      
+      
+      `;
+      break;
+    default:
+      newText = ``;
+  }
+  content.innerHTML = newText;
+}

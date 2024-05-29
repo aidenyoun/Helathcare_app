@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>금일 체크리스트 기록하기</title>
+    <link rel="stylesheet" href="{% static 'css/checklist_main.css' %}">
+</head>
+<body>
+    <div id="main">
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">1. 얼마나 자주 술을 마십니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 전혀 안 마심
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 2~4회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 2~3회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 주 4회
+        </div>
+        
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">2. 술을 마시는 날은 한번에 몇 잔 정도 마십니까? <br> <span style="font-size:13px; color:#6E6E6E" >(소주, 맥주 등 술의 종류에 산광없이 각각의 잔수로 계산)</span></p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 1~2잔
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 3~4잔 
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 5~6잔
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 7~9잔
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 10잔 이상
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">3. 한 번의 좌석에서 소주 한 병 또는 맥주 4병 이상 마시는 경우는 얼마나 자주 있습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">4. 지난 1년간 한 번 술을 마시기 시작하면 멈출 수 없었던 때가 얼마나 자주 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">5. 지난 1년간 평소 같았으면 할 수 있었던 일을 음주 때문에 실패한 적이 얼마나 자주 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">6. 지난 1년간 술을 마신 다음 날 일어나기 위해 해장술이 필요했던 적은 얼마나 자주 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">7. 지난 1년간 음주 후에 죄책감이 든 적이 얼마나 자주 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">8. 지난 1년간 음주 때문에 전날 밤에 있었던 일이 기억나지 않았던 적이 얼마나 자주 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='1'onclick='checkOnlyOne(this)'/> 월 1회 미만
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 월 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='3'onclick='checkOnlyOne(this)'/> 주 1회
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 거의 매일
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">9. 음주로 인해 자신이나 다른 사람이 다친 적이 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 있지만 지난 1년간은 없었다.
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 지난 1년간 있었다.
+        </div>
+
+        <div class="question">
+            <p style="font-size: 17px; font-weight:500;">10. 친척이나 친구, 의사가 당신이 술을 마시는 것을 걱정하거나 당신에게 술 끊기를 권유하는 적이 있었습니까?</p>
+            <input type='checkbox'class='checkbox'value='0'onclick='checkOnlyOne(this)'/> 없음
+            <br/>
+            <input type='checkbox'class='checkbox'value='2'onclick='checkOnlyOne(this)'/> 있지만 지난 1년간은 없었다.
+            <br/>
+            <input type='checkbox'class='checkbox'value='4'onclick='checkOnlyOne(this)'/> 지난 1년간 있었다.
+        </div>
+    </div>
+    <button id="finish" onclick="printresult()">입력완료</button>
+    <div id="result">
+        <p>📖 해석결과</p>
+        <p>사용자님은</p>
+        <p id="final_result">00</p>
+        <p>사용자님의 데이터가 안전하게 저장되었어요!</p>
+    </div>
+</body>
+<script type="text/javascript" src="{% static 'js/checklist_main.js' %}"></script>
+</html>
