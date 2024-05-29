@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   function record(){
-  window.open('templates/main/checklist_main.html');
+  window.open('/checklist_main/');
 }
   function changeContent(clickedElement) {
   var content = document.getElementById("main");
