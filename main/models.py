@@ -14,3 +14,12 @@ class VoiceFile(models.Model):
 
     def __str__(self):
         return self.file.name
+
+class HealthRecord(models.Model):
+    sex = models.CharField(max_length=10)
+    age = models.IntegerField()
+    weight = models.FloatField()
+    height = models.FloatField()
+
+    def __str__(self):
+        return f'{self.sex}, {self.age}, {self.weight}, {self.height}'

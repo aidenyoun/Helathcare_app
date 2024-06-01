@@ -1,5 +1,4 @@
 
-
 document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelectorAll('nav li div');
     links.forEach(function(link) {
@@ -70,21 +69,45 @@ document.addEventListener('DOMContentLoaded', function() {
             <p style="font-size: 20px;">✔️음주 체크리스트</p>
         </header>
         <button id="record" onclick='record()'>금일 체크리스트 기록하기</button>
-        <div id="history_list">
-            <div class="history">
-                <p>2024.05.21</p>
-                <img src="static/images/arrow.png"> 
-            </div>
-        </div>`;
+        <div id="history_list"></div>`;
       break;
     case "내 정보":
-      newText = `
-      
-      
-      `;
+      newText = ``;
       break;
     default:
       newText = ``;
   }
-  content.innerHTML = newText;
+    content.innerHTML = newText;
+    if (clickedElement.innerText === "알코올 중독 자가진단") {
+        loadChecklistRecords();
+    }
+}
+
+function loadChecklistRecords() {
+    fetch('/get-records/')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const historyList = document.getElementById('history_list');
+            if (data.records.length === 0) {
+                historyList.innerHTML = '<p>No records found.</p>';
+            } else {
+                data.records.forEach(record => {
+                    const div = document.createElement('div');
+                    div.className = 'history';
+                    div.innerHTML = `<p>${record.date}</p><img src="static/images/arrow.png" alt="<-">`;
+                    div.addEventListener('click', () => {
+                        alert(`Total Value: ${record.total_value}`);
+                    });
+                    historyList.appendChild(div);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }

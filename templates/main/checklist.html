@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #container_checklist{
+        #container_checklist {
             position: relative;
             top: 60px;
         }
-        #record{
+        #record {
             width: 180px;
             height: 40px;
             border-radius: 20px;
@@ -18,24 +18,25 @@
             background-color: #FFC124;
             color: white;
         }
-        #history_list{
+        #history_list {
             position: relative;
             top: 5px;
         }
-        .history{
+        .history {
             text-align: left;
             background-color: #F6F6F6;
             height: 45px;
             border-radius: 15px;
             border: none;
             box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.05);
+            cursor: pointer;
         }
-        .history p{
+        .history p {
             position: relative;
             top: 15px;
             left: 30px;
         }
-        .history img{
+        .history img {
             position: absolute;
             top: 16px;
             right: 20px;
@@ -43,16 +44,14 @@
         }
     </style>
 </head>
+<body>
     <div id="container_checklist">
         <header>
             <p style="font-size: 20px;">✔️음주 체크리스트</p>
         </header>
-        <button id="record" >금일 체크리스트 기록하기</button>
-        <div id="history_list">
-            <div class="history">
-                <p>2024.05.21</p>
-                <img id="arrow" src="{% static 'images/arrow.png' %}" alt="<-">
-            </div>
-        </div>
+        <button id="record" onclick="location.href='/checklist_main/'">금일 체크리스트 기록하기</button>
+        <div id="history_list"></div>
     </div>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
 </html>

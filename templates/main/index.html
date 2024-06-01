@@ -76,5 +76,45 @@
         </div>
     </nav>
 </body>
-<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script>
+        document.getElementById('enter').addEventListener('click', function() {
+            const sex = document.getElementById('sex').value;
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+
+            fetch('/submit-form/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({sex, age, weight, height })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('입력 완료 되었습니다!');
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            });
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 </html>

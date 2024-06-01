@@ -1,11 +1,3 @@
-function checkOnlyOne(element) {
-    const checkboxes = document.getElementsByName(element.name);
-    checkboxes.forEach((cb) => {
-        cb.checked = false;
-    });
-    element.checked = true;
-}
-
 function submitSurvey() {
     let totalValue = 0;
     const questions = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10'];
@@ -49,3 +41,4 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
