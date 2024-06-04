@@ -102,9 +102,9 @@ function loadChecklistRecords() {
                     const div = document.createElement('div');
                     div.className = 'history';
                     div.innerHTML = `<p>${record.date}</p>
-                                     <div class="history-buttons">
-                                        <button class="view-btn" onclick="viewRecord(${record.total_value})"><img src="static/images/arrow.png" alt="조회"></button>
-                                        <button class="delete-btn" onclick="deleteRecord(${record.id}, this)"><img src="static/images/del.png" alt="삭제"></button>
+                                     <div style='position:relative;right:-140px;top:-22px' class="history-buttons">
+                                        <button class="delete-btn" style='background: url("static/images/del.png") no-repeat center center; background-size: cover; border:none;width:10px;height:16px;' onclick="deleteRecord(${record.id}, this)"></button>
+                                        <button class="view-btn" style='background: url("static/images/arrow.png") no-repeat center center; background-size: cover; border:none;width:5px;height:20px' onclick="viewRecord(${record.total_value})"></button>
                                      </div>`;
                     historyList.appendChild(div);
                 });
