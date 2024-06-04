@@ -94,7 +94,7 @@ function loadChecklistRecords() {
         })
         .then(data => {
             const historyList = document.getElementById('history_list');
-            historyList.innerHTML = '';  // Clear previous entries
+            historyList.innerHTML = '';
             if (data.records.length === 0) {
                 historyList.innerHTML = '<p>No records found.</p>';
             } else {
