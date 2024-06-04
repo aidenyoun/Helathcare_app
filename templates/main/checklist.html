@@ -29,18 +29,27 @@
             border-radius: 15px;
             border: none;
             box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.05);
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-bottom: 10px;
         }
         .history p {
-            position: relative;
-            top: 15px;
-            left: 30px;
+            margin: 0;
         }
-        .history img {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            width: 10px;
+        .history-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .view-btn, .delete-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .view-btn img, .delete-btn img {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>

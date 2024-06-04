@@ -121,6 +121,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 # 추가: 신뢰할 수 있는 Origin 설정
 CSRF_TRUSTED_ORIGINS = [
     'https://eb54-1-244-69-195.ngrok-free.app'
+    'http://127.0.0.1:8000/'
 ]
 
 # Default primary key field type

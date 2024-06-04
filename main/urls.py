@@ -10,4 +10,5 @@ urlpatterns = [
     path('upload/', views.index, name='upload'),
     path('submit-form/', views.submit_form, name='submit_form'),
     path('get-records/', views.get_records, name='get_records'),
+    path('delete-record/<int:record_id>/', views.delete_record, name='delete_record'),  # Added delete record URL
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

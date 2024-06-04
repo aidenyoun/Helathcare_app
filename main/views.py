@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from .models import SurveyResult, VoiceFile, HealthRecord
 from .forms import SurveyForm, VoiceFileForm
@@ -29,8 +29,19 @@ def checklist_main(request):
 
 def get_records(request):
     records = SurveyResult.objects.all().order_by('-recorded_at')
-    data = [{'date': record.recorded_at.strftime('%Y.%m.%d'), 'total_value': record.total_value} for record in records]
+    data = [{'id': record.id, 'date': record.recorded_at.strftime('%Y.%m.%d'), 'total_value': record.total_value} for record in records]
     return JsonResponse({'records': data})
+
+@csrf_exempt
+def delete_record(request, record_id):
+    if request.method == 'DELETE':
+        try:
+            record = get_object_or_404(SurveyResult, pk=record_id)
+            record.delete()
+            return JsonResponse({'success': True})
+        except Exception as e:
+            return JsonResponse({'success': False, 'error': str(e)})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 @csrf_exempt
 def submit_form(request):
